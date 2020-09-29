@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>top page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}" rel="stylesheet"/>
+    <script th:href="@{webjars/jquery/3.5.0/js/jquery.min.js}"></script>
+    <script th:href="@{webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="container" style="text-align: center;">
+    <div class="row">
+        <div class="col">
+            <h1 style="background: #89eefc;text-align: center;">ツイ廃ランカー</h1>
+        </div>
+    </div>
+    <form action="check_rank" method="post">
+        <div class="row">
+            <div class="col"><input type="text" name="ID" style="width: 202px;height: 48px;margin-top: 20px;" placeholder="@ID"></div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="submit" class="btn btn-primary" style="margin-top: 20px" value="ランクを測る">
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col">
+            <p style="margin-top: 20px;">@IDを入力しボタンを押すとツイ廃ランクが表示されます</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p id="tier_text">Tier：<span th:text="${tier}"></span></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p id="ranking_text">ランキング：<span th:text="${ranking}"></span></p>
+        </div>
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
