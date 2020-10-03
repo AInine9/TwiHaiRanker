@@ -20,12 +20,20 @@ public class MainController {
     }
 
     @RequestMapping("/check_rank")
-    public String checkRank(@RequestParam("ID") String ID, Model model) {
+    public String checkRank(@RequestParam(value = "ID", required = false) String ID, Model model) {
+        if (ID == null) {
+            model.addAttribute("tier", "エラーが発生しました。");
+            model.addAttribute("ranking", "エラーが発生しました。");
+            model.addAttribute("tweets_per_day", "エラーが発生しました。");
+            return "check_rank";
+        }
+
         TwitterUtil twitterUtil = new TwitterUtil(ID);
 
         if (twitterUtil.getCount() == 0 || twitterUtil.getDate() == null) {
             model.addAttribute("tier", "ユーザーが見つからないかツイートをしていません。");
             model.addAttribute("ranking", "ユーザーが見つからないかツイートをしていません。");
+            model.addAttribute("tweets_per_day", "ユーザーが見つからないかツイートをしていません。");
             return "check_rank";
         }
 
