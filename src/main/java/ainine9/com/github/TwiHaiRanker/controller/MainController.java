@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import twitter4j.TwitterException;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -13,7 +12,7 @@ import java.util.Date;
 @Controller
 public class MainController {
     public static final long oneDateTime = 1000 * 60 * 60 * 24;
-    private String tier, ranking;
+    private String tier, ranking, tweetsPerDayString;
 
     @RequestMapping(value = "/main")
     public String main() {
@@ -34,6 +33,7 @@ public class MainController {
 
         model.addAttribute("tier", tier);
         model.addAttribute("ranking", ranking);
+        model.addAttribute("tweets_per_day", tweetsPerDayString);
         return "check_rank";
     }
 
@@ -49,6 +49,7 @@ public class MainController {
 
         BigDecimal tweetsPerDay = count.divide(diffDays, 2, BigDecimal.ROUND_HALF_UP);
 
+        tweetsPerDayString = tweetsPerDay.toPlainString();
         tier = tweetsPerDay.toPlainString();
         ranking = tweetsPerDay.toPlainString();
     }
