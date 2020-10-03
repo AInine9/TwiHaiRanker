@@ -41,7 +41,7 @@ public class MainController {
 
         model.addAttribute("tier", tier);
         model.addAttribute("ranking", ranking);
-        model.addAttribute("tweets_per_day", tweetsPerDayString);
+        model.addAttribute("tweets_per_day", "1日あたり " + tweetsPerDayString + " ツイート");
         return "check_rank";
     }
 
