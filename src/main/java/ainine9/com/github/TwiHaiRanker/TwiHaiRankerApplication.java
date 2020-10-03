@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 public class TwiHaiRankerApplication {
 
-	@RequestMapping("/")
-	String index() {
-		return "Hello World!";
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(TwiHaiRankerApplication.class, args);
+    }
 
-	public static void main(String[] args) {
-		SpringApplication.run(TwiHaiRankerApplication.class, args);
-	}
+    @RequestMapping("/")
+    String index() {
+        return "Hello World!";
+    }
 
 }

@@ -2,8 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>ツイ廃ランカー</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link th:href="@{webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}" rel="stylesheet"/>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}"/>
     <script th:href="@{webjars/jquery/3.5.0/js/jquery.min.js}"></script>
     <script th:href="@{webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
 </head>
@@ -16,11 +16,12 @@
     </div>
     <form action="check_rank" method="post">
         <div class="row">
-            <div class="col"><input type="text" name="ID" style="width: 202px;height: 48px;margin-top: 20px;" placeholder="@ID"></div>
+            <div class="col"><input name="ID" placeholder="@ID" style="width: 202px;height: 48px;margin-top: 20px;"
+                                    type="text"></div>
         </div>
         <div class="row">
             <div class="col">
-                <input type="submit" class="btn btn-primary" style="margin-top: 20px" value="ランクを測る">
+                <input class="btn btn-primary" style="margin-top: 20px" type="submit" value="ランクを測る">
             </div>
         </div>
     </form>

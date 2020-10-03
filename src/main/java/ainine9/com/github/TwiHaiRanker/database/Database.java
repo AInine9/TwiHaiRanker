@@ -12,7 +12,7 @@ public class Database {
         String user = "oonduonaxbyruw";
         String password = "23bef676139a6643fb3bf472298fddd97f4b086b9868931ab21592869d34ec6a";
 
-        try{
+        try {
             //PostgreSQLへ接続
             conn = DriverManager.getConnection(url, user, password);
 
@@ -25,7 +25,7 @@ public class Database {
             rset = stmt.executeQuery(sql);
 
             //SELECT結果の受け取り
-            while(rset.next()){
+            while (rset.next()) {
                 String col = rset.getString(1);
                 System.out.println(col);
             }
@@ -34,17 +34,14 @@ public class Database {
             sql = "INSERT INTO jdbc_test VALUES (1, 'AAA')";
             stmt.executeUpdate(sql);
             conn.commit();
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             try {
-                if(rset != null)rset.close();
-                if(stmt != null)stmt.close();
-                if(conn != null)conn.close();
-            }
-            catch (SQLException e){
+                if (rset != null) rset.close();
+                if (stmt != null) stmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
 

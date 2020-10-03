@@ -6,8 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
-
 @Controller
 public class MainController {
 
@@ -17,14 +15,14 @@ public class MainController {
     }
 
     @RequestMapping("/check_rank")
-    public String checkRank(@RequestParam("ID") String ID, Model model) throws Exception {
+    public String checkRank(@RequestParam("ID") String ID, Model model) {
         String tier, ranking;
 
         TwitterUtil twitterUtil = new TwitterUtil(ID);
-        String count = twitterUtil.getCount();
+        int count = twitterUtil.getCount();
 
-        tier = count;
-        ranking = count;
+        tier = String.valueOf(count);
+        ranking = String.valueOf(count);
 
         model.addAttribute("tier", tier);
         model.addAttribute("ranking", ranking);
